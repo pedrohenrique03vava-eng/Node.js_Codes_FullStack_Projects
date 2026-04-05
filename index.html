@@ -26,6 +26,22 @@
             </ul>
         </div>
     </div>
-    <script src="sla.js"></script>
+    
+
+    <div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Editar Usuário</h2>
+
+    <input type="text" id="editNome" placeholder="Nome">
+    <input type="number" id="editIdade" placeholder="Idade">
+    <input type="email" id="editEmail" placeholder="Email">
+
+    <div class="modal-buttons">
+      <button onclick="salvarEdicao()">Salvar</button>
+      <button onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+<script src="sla.js"></script>
 </body>
 </html>

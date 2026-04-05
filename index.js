@@ -39,32 +39,52 @@ const Usuarios = sequelize.define('users', {
 
 
 App.post('/usuarios', async function(req,res){
-    const {nome,idade,email} = req.body
-    const novoUsuario = await Usuarios.create({ nome, idade, email });
-    res.status(201).json(novoUsuario);
+    try{
+        const {nome,idade,email} = req.body
+        const novoUsuario = await Usuarios.create({ nome, idade, email });
+        res.status(201).json(novoUsuario);
+    }catch(err){
+        res.status(500).json({erro: "Erro ao criar Usuario"})
+    }
+  
 })
 
 App.get('/usuarios',async function (req,res) {
-    const lista = await Usuarios.findAll();
-    res.json(lista);    
+    try{
+        const lista = await Usuarios.findAll();
+        res.status(200).json(lista);    
+    }catch(err){
+        res.status(500).json({erro: "Erro ao procurar usuarios"})
+    }
+  
 })
 
 App.delete('/usuarios/:id',async function (req,res) {
-    const idParaDeletar = req.params.id
+    try{
+            const idParaDeletar = req.params.id
 
     await Usuarios.destroy({
         where: { id: idParaDeletar }
     })
 
     res.status(204).send();
+    }catch(err){
+        res.status(404).json({erro:"Usuario não encontrado"})
+    }
+
 })
 App.put('/usuarios/:id', async function (req,res) {
+    try{
     const updateId = req.params.id
     const novosDados = req.body
     await Usuarios.update(novosDados,{
         where:{id: updateId}
     })
-    res.status(204).send();
+    res.status(200).send();
+    }catch(err){
+        res.status(404).json({erro: "usuario não encontrado"})
+    }
+
 })
 
 App.listen(8083, function(){
