@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;           
+    margin: 0;
+    font-family: 'Poppins', sans-serif; 
+    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+
+#formulario label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: -15px; 
+}
+
+
+#formulario input {
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#formulario input:focus {
+    border-color: #764ba2; 
+    background-color: #f8f9ff;
+}
+
+/* O Botão "Uau" */
+#formulario button {
+    margin-top: 10px;
+    padding: 15px;
+    background: #764ba2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#formulario button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+
+#formulario button:active {
+    transform: scale(0.98); 
+}
